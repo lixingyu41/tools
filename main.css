@@ -3,6 +3,9 @@
     padding: 0;
     background-color: #2f2f2f;
 }
+:root{
+    scroll-behavior: smooth;
+}
 #mas{
     color: #f2f2f2;
     text-align: center;
