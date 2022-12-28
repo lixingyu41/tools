@@ -1,5 +1,6 @@
 window.onload=function(){
     when_load();
+    themejs();
 }
 // 信息获取
 function buttonget(){
@@ -11,6 +12,7 @@ function buttonget(){
     if(data_check){
         datasave();
     }
+    location.reload ();
 }
 //数据读取
 function dataget(){

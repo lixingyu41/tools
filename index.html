@@ -8,10 +8,16 @@
     <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#317EFB"/>
-    <title>LXY·Tools</title>
+    <title>LXY-Tools</title>
     <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="theme.js"></script>
 </head>
 <body>
+    <script>
+        window.onload = function(){
+            themejs();
+        }
+    </script>
     <header>
         <h1><a href="#">工具</a></h1>
         <p>这个页面只是用来导航，一般情况下你不会看到这个页面，所以很简陋</p>
@@ -20,11 +26,16 @@
     </header>
     <h2>健康</h2>
     <div class="links" id="health">
-        <a href="p/bodyhealth.html">身体指标计算</a>
+        <a href="bh/bodyhealth.html">身体指标计算</a>
     </div>
-    <h2>网络</h2>
+    <!-- <h2>网络</h2>
     <div class="links" id="net">
         <a href="p/yourip.html">你的IP（未上线）</a>
+    </div> -->
+    <h2>实用</h2>
+    <div class="links" id="">
+        <a href="time/time.html">现在系统时间</a>
+        <a href="alert/alert.html">计时提示器</a>
     </div>
     <div id="mas"><a href="https://lixingyu.top" target="_blank ">&copy;李星宇</a> | <a href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2022018499号-1</a></div>
 </body>

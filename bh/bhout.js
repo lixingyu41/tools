@@ -15,9 +15,9 @@ userdate = new Date(user_date_get);
     user_year = userdate.getFullYear();
     user_month = userdate.getMonth() + 1 ;
     user_day = userdate.getDate();
-    console.log(user_year);
-    console.log(user_month);
-    console.log(user_day);
+    // console.log(user_year);
+    // console.log(user_month);
+    // console.log(user_day);
 if(user_gender_get=="boy"){
     user_gender_num = 1;
 }
