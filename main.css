@@ -1,17 +1,14 @@
 *{
     margin: 0;
     padding: 0;
-    background-color: #2f2f2f;
 }
 :root{
     scroll-behavior: smooth;
 }
 #mas{
-    color: #f2f2f2;
     text-align: center;
 }
 #mas a{
-    color: #f2f2f2;
     text-decoration: none;
 }
 #mas a:hover{
@@ -23,7 +20,6 @@ h1{
 h1 a{
     font-size: 10vw;
     text-decoration: none;
-    color: #f2f2f255
 }
 h1 a:hover{
     color: rgb(231, 141, 39);
@@ -31,10 +27,8 @@ h1 a:hover{
 p{
     margin: 10px 5vw;
     text-align: center;
-    color: #fff;
 }
 h2{
-    color: #f2f2f2;
     margin-top: 2vh;
     text-align: center;
     font-size: 5vw;
@@ -46,12 +40,10 @@ h2{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-color: #f2f2f255;
 }
 .links a{
     text-align: center;
     margin: 10px 15px;
     width: 150px;
     font-size: 3vh;
-    background-color: #f2f2f255;
 }

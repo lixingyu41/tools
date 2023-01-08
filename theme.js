@@ -1,7 +1,3 @@
-function themejs(){
-    theme_get();
-    theme_change();
-}
 function theme_get(){
     if(window.matchMedia('(prefers-color-scheme: dark)').matches){
         theme_rec = 0;
@@ -26,4 +22,8 @@ function theme_change(){
     else{
         console.log("theme rec error");
     }
+}
+function themejs(){
+    theme_get();
+    theme_change();
 }

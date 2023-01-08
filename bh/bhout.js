@@ -34,6 +34,9 @@ function age_zhou(){
         if(now_day > user_day){
             user_age_zhou = now_year - user_year;
         }
+        else if(now_day <= user_day){
+            user_age_zhou = now_year - user_year - 1 ;
+        }
     }
     else{
         user_age_zhou = now_year - user_year - 1;
