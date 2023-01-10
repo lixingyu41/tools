@@ -53,6 +53,7 @@ function age_xu(){
 //BMI
 function bmi(){
     user_bmi = user_weight_get / ( ( user_tall_get / 100 ) * ( user_tall_get / 100 ) )
+    user_bmi = fdfu(user_bmi);
     console.log(user_bmi);
     document.getElementById("user_bmi").innerHTML = user_bmi;
     if(user_bmi<18.5){
@@ -83,11 +84,13 @@ function water(){
 //体脂估算
 function bodyfat(){
     user_bodyfat = (1.2 * user_bmi) + (0.23 * user_age_zhou) - 5.4 - (10.8 * user_gender_num);
+    user_bodyfat = fdfu(user_bodyfat);
     document.getElementById("user_bodyfat").innerHTML = user_bodyfat;
 }
 //心率区间
 function heartrate(){
     user_heartrate_fast = 205.8 - (0.685 * user_age_zhou );
+    user_heartrate_fast = fdfu(user_heartrate_fast);
     document.getElementById("user_heartrate_fast").innerHTML = user_heartrate_fast;
 }
 //代谢
@@ -104,4 +107,23 @@ function bmr(){
 function cal(){
     user_cal = user_weight_get * 33;
     document.getElementById("user_cal").innerHTML = user_cal;
+}
+function fdfu(num){
+    var result = parseFloat(num);
+    if(isNaN(result)){
+        console.log(result);
+        console.log("四舍五入参数错误");
+        return false;
+    }
+    result = Math.round(num * 100) / 100;
+    var s_x = result.toString();
+    var pos_decimal = s_x.indexOf('.');
+    if(pos_decimal < 0){
+        pos_decimal = s_x.length;
+        s_x += '.';
+    }
+    while(s_x.length <= pos_decimal + 2){
+        s_x += '0';
+    }
+    return s_x;
 }
