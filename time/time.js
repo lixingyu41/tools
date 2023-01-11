@@ -1,6 +1,6 @@
 window.onload = function(){
-    themejs();
     timeget();
+    lxy_theme_js();
 }
 function timeget(){
     var today = new Date();

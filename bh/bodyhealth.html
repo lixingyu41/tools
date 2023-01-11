@@ -14,85 +14,84 @@
     <script type="text/javascript" src="bhout.js"></script>
     <script type="text/javascript" src="../theme.js"></script>
 </head>
-<body>
+<body class="theme_back">
     <header>
-        <h1>工具</h1>
-        <h2>身体指标计算</h2>
-        <p class="same"><b>信息仅供参考，更准确的信息请咨询有相关资质的医生</b></p>
-        <p class="same">本网站不会上传您在本站所填写的任何信息，所有数据以及运算均在本地完成</p>
-        <p class="same"><b>注意：确保您的系统时间日期正确</b></p>
+        <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+        <h2 class="theme_two">身体指标计算</h2>
+        <p class="theme_one same"><b>信息仅供参考，更准确的信息请咨询有相关资质的医生</b></p>
+        <p class="theme_one same"><b>注意：确保您的系统时间日期正确</b></p>
+        <p class="theme_one same">仅当提交数据正确数据才有意义</p>
     </header>
     <div class="infor" id="in">
-        <span class="title">信息</span>
-        <p>·    输入全部信息以计算</p>
-        <p>·    确保输入正确</p>
-        <p>.    确保您的系统时间日期正确</p>
+        <span class="theme_one title">信息</span>
+        <p class="theme_three">·    输入全部信息以计算</p>
+        <p class="theme_three">·    确保输入正确</p>
+        <p class="theme_three">.    确保您的系统时间日期正确</p>
         <form action="#">
             <div>
-                <label for="gender">您的生物学性别</label>
-                <select name="gender" id="user_gender">
+                <label class="theme_two" for="gender">您的生物学性别</label>
+                <select class="theme_one_v" name="gender" id="user_gender">
                     <option value ="boy">男</option>
                     <option value ="girl">女</option>
                 </select>
             </div>
             <div>
-                <label for="born">您的出生日期(公历)</label>
-                <input type="date" id="user_date" value="" name="born">
+                <label class="theme_two" for="born">您的出生日期(公历)</label>
+                <input class="theme_one_v" type="date" id="user_date" value="" name="born">
             </div>
             <div>
-                <label for="tall">您的身高(cm)</label>
-                <input type="text" id="user_tall" value="" name="tall" placeholder="您的身高">
+                <label class="theme_two" for="tall">您的身高(cm)</label>
+                <input class="theme_one_v" type="text" id="user_tall" value="" name="tall" placeholder="您的身高">
             </div>
             <div>
-                <label for="weight">您的体重(kg)</label>
-                <input type="text" id="user_weight" value="" name="weight" placeholder="您的体重">
+                <label class="theme_two" for="weight">您的体重(kg)</label>
+                <input class="theme_one_v" type="text" id="user_weight" value="" name="weight" placeholder="您的体重">
             </div>
-            <input type="button" id="button" onclick="buttonget()" name="submit" value="提交">
+            <input class="theme_one_v" type="button" id="button" onclick="buttonget()" name="submit" value="提交">
         </form>
     </div>
     <div class="infor" id="out">
-        <span class="title">结果</span>
+        <span class="theme_one title">结果</span>
         <div id="ages">
-            <h2>年龄</h2>
-            <p>您现在<span id="user_age_zhou">error</span>周岁，<span id="user_age_xu">error</span>虚岁</p>
+            <h2 class="theme_two">年龄</h2>
+            <p class="theme_two">您现在<span id="user_age_zhou">error</span>周岁，<span id="user_age_xu">error</span>虚岁</p>
         </div>
         <div id="bmi">
-            <h2>身体质量指数</h2>
-            <p>您的BMI是<span id="user_bmi">error</span>。</p>
-            <p>您的身体属于<span id="user_bmi_sug">error</span>。</p>
+            <h2 class="theme_two">身体质量指数</h2>
+            <p class="theme_two">您的BMI是<span id="user_bmi">error</span>。</p>
+            <p class="theme_two">您的身体属于<span id="user_bmi_sug">error</span>。</p>
         </div>
         <div>
-            <h2>饮水</h2>
-            <p>您的每天饮水量建议为<span id="user_water"></span>ml左右</p>
+            <h2 class="theme_two">饮水</h2>
+            <p class="theme_two">您的每天饮水量建议为<span id="user_water">error</span>ml左右</p>
         </div>
         <div>
-            <h2>体脂</h2>
-            <p>您体脂率粗略估为<span id="user_bodyfat"></span>%</p>
+            <h2 class="theme_two">体脂</h2>
+            <p class="theme_two">您体脂率粗略估为<span id="user_bodyfat">error</span>%</p>
         </div>
         <div>
-            <h2>心率</h2>
-            <p>您的最大心率约<span id="user_heartrate_fast"></span>每分钟</p>
+            <h2 class="theme_two">心率</h2>
+            <p class="theme_two">您的最大心率约<span id="user_heartrate_fast">error</span>每分钟</p>
         </div>
         <div>
-            <h2>代谢</h2>
-            <p>您的基础代谢率是<span id="user_bmr"></span>千卡</p>
+            <h2 class="theme_two">代谢</h2>
+            <p class="theme_two">您的基础代谢率是<span id="user_bmr">error</span>千卡</p>
         </div>
         <div>
-            <h2>卡路里相关</h2>
-            <p>您每天需要摄入<span id="user_cal"></span>卡路里的食物来维持您的体重</p>
+            <h2 class="theme_two">卡路里相关</h2>
+            <p class="theme_two">您每天需要摄入<span id="user_cal">error</span>卡路里的食物来维持您的体重</p>
         </div>
         <div>
-            <h2>我的关于减肥的文章</h2>
-            <p><a class="link" href="https://blog.lixingyu.top/2022/09/30/%E8%82%A5%E8%83%96/">点击跳转</a></p>
+            <h2 class="theme_two">我的关于减肥的文章</h2>
+            <p><a class="theme_two link" href="https://blog.lixingyu.top/2022/09/30/%E8%82%A5%E8%83%96/">点击跳转</a></p>
         </div>
     </div>
     <div class="infor">
-        <span class="title">反馈</span>
+        <span class="theme_one title">反馈</span>
         <div>
-            <p>使用问题与建议联系我的邮箱:</p>
-            <p><a class="link" href="mailto:admin@lixingyu.top">admin@lixingyu.top</a></p>
+            <p class="theme_two">使用问题与建议请联系我主站提供的邮箱</p>
         </div>
     </div>
-    <footer><a class="link" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a> | <a class="link" href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2022018499号-1</a></footer>
+    <footer><a class="link theme_two" href="https://github.com/lixingyu41/lxy_theme_js" target="_blank ">自适应颜色切换</a> | <a class="link theme_two" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a> | <a class="link theme_two" href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2022018499号-1</a></footer>
 </body>
 </html>

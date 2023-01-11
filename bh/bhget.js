@@ -1,6 +1,6 @@
 window.onload=function(){
     when_load();
-    themejs();
+    lxy_theme_js();
 }
 // 信息获取
 function buttonget(){

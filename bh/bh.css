@@ -1,91 +1,79 @@
 .infor{
     margin: 10vh 5vw;
     padding: 10px 10px;
-    border:10px solid #f2f2f299;
     border-radius: 20px;
 }
 .infor p{
     margin-left: 3vh;
     font-size:2.5em;
-    color: #f2f2f2;
 }
 .infor div{
     margin: 3vh 3vw;
     padding: 5px;
-    border:2px solid #f2f2f299;
     border-radius: 10px;
 }
 .infor div h2{
     font-size: 3.5vw;
-    color: #f2f2f2aa;
 }
 .infor div h1{
     font-size: 4vw;
-    color: #fff;
-}
-label{
-    color: #fff;
 }
 .title{
-    color: #fff;
     font-size: 15vw;
     margin: 2vh 2vw;
 }
 *{
     margin: 0;
     padding: 0;
-    background-color: #2f2f2f;
 }
 footer{
-    color: #f2f2f2;
     text-align: center;
 }
 .link{
-    color: #f2f2f2;
     text-decoration: none;
 }
 .link:hover{
     font-weight: bold;
 }
 header h1{
-    color: #f2f2f255;
     text-align: center;
     font-size: 10vw;
+}
+header h1 a{
+    text-decoration: none;
 }
 .same{
     margin: 10px 5vw;
     text-align: center;
-    color: #f2f2f2;
 }
 header h2{
-    color: #f2f2f2;
     margin-top: 2vh;
     text-align: center;
     font-size: 5vw;
 }
-select{  
-    border:1px solid #ffffffaa;
+label{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+select{
+    font-size: 1em;
     border-radius: 7px;
     padding:10px;  
     margin:10px;  
-    color: #f2f2f2;
     font-weight: bold;
-}
-select:hover{
-    box-shadow: #f2f2f2 0px 1px 1px 0px;
 }
 input{
-    border:1px solid #ffffffaa;  
+    font-size: 1em;
     border-radius: 7px;
     padding:10px;  
     margin:10px;  
-    color: #f2f2f2;
     font-weight: bold;
 }
-input:hover{
-    box-shadow: #f2f2f2 0px 1px 1px 0px;
+#button{
+    font-size: 1.5em;
+    padding: 20px 50px;
+    margin-left: 8vh;
 }
 ::placeholder{
-    color: #f2f2f2;
     font-weight: bold;
 }

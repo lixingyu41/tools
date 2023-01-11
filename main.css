@@ -1,35 +1,32 @@
 *{
     margin: 0;
     padding: 0;
+    user-select: none;
 }
 :root{
     scroll-behavior: smooth;
 }
-#mas{
+footer{
     text-align: center;
 }
-#mas a{
+footer a{
     text-decoration: none;
 }
-#mas a:hover{
-    font-weight: bold;
-}
-h1{
+header{
     text-align: center;
 }
 h1 a{
     font-size: 10vw;
     text-decoration: none;
 }
-h1 a:hover{
-    color: rgb(231, 141, 39);
+header p{
+    padding: 2vw;
+    font-size: 1rem;
 }
-p{
-    margin: 10px 5vw;
-    text-align: center;
+main div{
+    margin-top: 2vh;
 }
 h2{
-    margin-top: 2vh;
     text-align: center;
     font-size: 5vw;
 }
