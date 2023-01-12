@@ -55,13 +55,13 @@ function when_load(){
         document.getElementById("user_tall").value=localStorage.getItem('ltool_user_tall')
         document.getElementById("user_date").value=localStorage.getItem('ltool_user_date')
         document.getElementById("user_gender").value=localStorage.getItem('ltool_user_gender')
+        age_zhou();
+        age_xu();
+        bmi();
+        water();
+        bodyfat();
+        heartrate();
+        bmr();
+        cal();
     }
-    age_zhou();
-    age_xu();
-    bmi();
-    water();
-    bodyfat();
-    heartrate();
-    bmr();
-    cal();
 }
