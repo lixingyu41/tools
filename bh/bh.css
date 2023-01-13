@@ -5,12 +5,14 @@
 }
 .infor p{
     margin-left: 3vh;
-    font-size:2.5em;
+    font-size:1.3em;
 }
 .infor div{
+    border: 10px solid #888;
     margin: 3vh 3vw;
     padding: 5px;
-    border-radius: 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
 }
 .infor div h2{
     font-size: 3.5vw;
@@ -49,7 +51,7 @@ header h1 a{
 header h2{
     margin-top: 2vh;
     text-align: center;
-    font-size: 5vw;
+    font-size: 8vw;
 }
 label{
     font-size: 1.5em;
