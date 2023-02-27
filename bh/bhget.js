@@ -18,16 +18,16 @@ function buttonget(){
 function dataget(){
     //性别
     user_gender_get=document.getElementById("user_gender").value;
-    console.log(user_gender_get);
+    // console.log(user_gender_get);
     //生日
     user_date_get=document.getElementById("user_date").value;
-    console.log(user_date_get);
+    // console.log(user_date_get);
     //身高
     user_tall_get=document.getElementById("user_tall").value;
-    console.log(user_tall_get);
+    // console.log(user_tall_get);
     //体重
     user_weight_get=document.getElementById("user_weight").value;
-    console.log(user_weight_get);
+    // console.log(user_weight_get);
 }
 //数据存储
 function datasave(){

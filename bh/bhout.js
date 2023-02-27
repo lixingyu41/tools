@@ -8,9 +8,9 @@ today = new Date();
     now_year = today.getFullYear();
     now_month = today.getMonth() + 1 ;
     now_day = today.getDate();
-    console.log(now_year);
-    console.log(now_month);
-    console.log(now_day);
+    // console.log(now_year);
+    // console.log(now_month);
+    // console.log(now_day);
 userdate = new Date(user_date_get);
     user_year = userdate.getFullYear();
     user_month = userdate.getMonth() + 1 ;
@@ -41,20 +41,20 @@ function age_zhou(){
     else{
         user_age_zhou = now_year - user_year - 1;
     }
-    console.log(user_age_zhou);
+    // console.log(user_age_zhou);
     document.getElementById("user_age_zhou").innerHTML = user_age_zhou;
 }
 //虚岁
 function age_xu(){
     user_age_xu = now_year - user_year + 1;
-    console.log(user_age_xu);
+    // console.log(user_age_xu);
     document.getElementById("user_age_xu").innerHTML = user_age_xu;
 }
 //BMI
 function bmi(){
     user_bmi = user_weight_get / ( ( user_tall_get / 100 ) * ( user_tall_get / 100 ) )
     user_bmi = fdfu(user_bmi);
-    console.log(user_bmi);
+    // console.log(user_bmi);
     document.getElementById("user_bmi").innerHTML = user_bmi;
     if(user_bmi<18.5){
         user_bmi_sug = ("体重过低");
