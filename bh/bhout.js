@@ -1,8 +1,8 @@
 //数据拉取
-user_weight_get=localStorage.getItem('ltool_user_weight');
-user_tall_get=localStorage.getItem('ltool_user_tall')
-user_date_get=localStorage.getItem('ltool_user_date')
-user_gender_get=localStorage.getItem('ltool_user_gender')
+user_weight_get=localStorage.getItem('ltool_bh_weight');
+user_tall_get=localStorage.getItem('ltool_bh_tall')
+user_date_get=localStorage.getItem('ltool_bh_date')
+user_gender_get=localStorage.getItem('ltool_bh_gender')
 //数据处理
 today = new Date();
     now_year = today.getFullYear();

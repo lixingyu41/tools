@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习过程中做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2f2f2f"/>
+    <title>LXY-Tools-system</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="ststem.css">
+    <script type="text/javascript" src="system.js"></script>
+    <script type="text/javascript" src="https://file.lixingyu.top/js/theme.js"></script>
+</head>
+    <body class="theme_back">
+        <header>
+            <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+            <h2 class="theme_two">进制转换</h2>
+            <p class="theme_one same"><b>信息仅供参考,您填写的数据只在本地储存</b></p>
+            <p class="theme_one same"><b>确保您系统日期正确</b></p>
+        </header>
+        <main>
+            <div class="infor" id="in">
+                    <span class="theme_one title">输入</span>
+                    <p class="theme_three">·    输入全部信息后按按钮以计算</p>
+                    <p class="theme_three">·    确保输入正确</p>
+                <form action="#">
+                    <div>
+                        <label class="theme_two" for="system">原进制</label>
+                        <select class="theme_one_v" name="system" id="user_system">
+                            <option value ="2">二进制</option>
+                            <option value ="4">四进制</option>
+                            <option value ="8">八进制</option>
+                            <option value ="10">十进制</option>
+                            <option value ="16">十六进制</option>
+                            <option value ="32">三十二进制</option>
+                            <!-- <option value ="64">六十四进制</option> -->
+                        </select>
+                    </div>
+                    <div>
+                        <label class="theme_two" for="number">原数据</label>
+                        <input class="theme_one_v" type="number" id="user_data" value="" name="number">
+                    </div>
+                    <input class="theme_one_v" type="button" id="button" onclick="buttonget()" name="submit" value="提交">
+                </form>
+            </div>
+            <div class="infor" id="out">
+                <span class="theme_one title">结果</span>
+                <div>
+                    <h2 class="theme_two">二进制</h2>
+                    <p class="theme_two"><span id="two_o">error</span></p>
+                </div>
+                <div>
+                    <h2 class="theme_two">四进制</h2>
+                    <p class="theme_two"><span id="four_o">error</span></p>
+                </div>
+                <div>
+                    <h2 class="theme_two">八进制</h2>
+                    <p class="theme_two"><span id="eight_o">error</span></p>
+                </div>
+                <div>
+                    <h2 class="theme_two">十进制</h2>
+                    <p class="theme_two"><span id="ten_o">error</span></p>
+                </div>
+                <div>
+                    <h2 class="theme_two">十六进制</h2>
+                    <p class="theme_two"><span id="sisteen_o">error</span></p>
+                </div>
+                <div>
+                    <h2 class="theme_two">三十二进制</h2>
+                    <p class="theme_two"><span id="tt_o">error</span></p>
+                </div>
+                <!-- <div>
+                    <h2 class="theme_two">六十四进制</h2>
+                    <p class="theme_two"><span id="sf_o">error</span></p>
+                </div> -->
+            </div>
+        <footer><a class="theme_two" href="https://github.com/lixingyu41/lxy_theme_js">自适应颜色切换</a> | <a class="theme_two" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a> | <a class="theme_two" href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2022018499号-1</a></footer>
+    </main>
+        </body>
+</html>

@@ -1,0 +1,52 @@
+label{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+select{
+    font-size: 1em;
+    border-radius: 7px;
+    padding:10px;  
+    margin:10px;  
+    font-weight: bold;
+}
+input{
+    font-size: 1em;
+    border-radius: 7px;
+    padding:10px;  
+    margin:10px;  
+    font-weight: bold;
+}
+#button{
+    font-size: 1.5em;
+    padding: 20px 50px;
+    margin-left: 8vh;
+}
+::placeholder{
+    font-weight: bold;
+}
+.infor{
+    margin: 10vh 5vw;
+    padding: 10px 10px;
+    border-radius: 20px;
+}
+.infor p{
+    margin-left: 3vh;
+    font-size:1.3em;
+}
+.infor div{
+    border: 10px solid #888;
+    margin: 3vh 3vw;
+    padding: 5px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+.infor div h2{
+    font-size: 3.5vw;
+}
+.infor div h1{
+    font-size: 4vw;
+}
+.title{
+    font-size: 15vw;
+    margin: 2vh 2vw;
+}

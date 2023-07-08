@@ -31,11 +31,11 @@ function dataget(){
 }
 //数据存储
 function datasave(){
-    localStorage.setItem('ltool_user_gender',user_gender_get);
-    localStorage.setItem('ltool_user_date',user_date_get);
-    localStorage.setItem('ltool_user_tall',user_tall_get);
-    localStorage.setItem('ltool_user_weight',user_weight_get);
-    localStorage.setItem('ltool_user_check',1);
+    localStorage.setItem('ltool_bh_gender',user_gender_get);
+    localStorage.setItem('ltool_bh_date',user_date_get);
+    localStorage.setItem('ltool_bh_tall',user_tall_get);
+    localStorage.setItem('ltool_bh_weight',user_weight_get);
+    localStorage.setItem('ltool_bh_check',1);
 }
 //全量检查是否填写完整
 function blank_check(){
@@ -49,12 +49,12 @@ function blank_check(){
 }
 //加载网页是读取本地储存，如有则赋给表格默认值
 function when_load(){
-    data_check=localStorage.getItem('ltool_user_check');
+    data_check=localStorage.getItem('ltool_bh_check');
     if(data_check){
-        document.getElementById("user_weight").value=localStorage.getItem('ltool_user_weight');
-        document.getElementById("user_tall").value=localStorage.getItem('ltool_user_tall')
-        document.getElementById("user_date").value=localStorage.getItem('ltool_user_date')
-        document.getElementById("user_gender").value=localStorage.getItem('ltool_user_gender')
+        document.getElementById("user_weight").value=localStorage.getItem('ltool_bh_weight');
+        document.getElementById("user_tall").value=localStorage.getItem('ltool_bh_tall')
+        document.getElementById("user_date").value=localStorage.getItem('ltool_bh_date')
+        document.getElementById("user_gender").value=localStorage.getItem('ltool_bh_gender')
         age_zhou();
         age_xu();
         bmi();

@@ -8,7 +8,7 @@
     font-size:1.3em;
 }
 .infor div{
-    border: 10px solid #888;
+    border: 5px solid #888;
     margin: 3vh 3vw;
     padding: 5px;
     border-radius: 15px;
@@ -70,6 +70,7 @@ input{
     padding:10px;  
     margin:10px;  
     font-weight: bold;
+    max-width: 50vw;
 }
 #button{
     font-size: 1.5em;
