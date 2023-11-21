@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习过程中做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>LXY-Tools-mls</title>
+    <link rel="stylesheet" href="mls.css">
+    <script type="text/javascript" src="mls.js"></script>
+    <script type="text/javascript" src="https://file.lixingyu.top/js/theme.js"></script>
+</head>
+<body class="theme_back">
+    <header>
+        <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+        <h2 class="theme_two">马拉松成绩换算</h2>
+        <p class="theme_one same"><b>信息不作为医学参考意见</b></p>
+        <p class="theme_one same"><b>信息仅供参考,您填写的数据只在本地储存</b></p>
+        <p class="theme_one same"><b>确保您系统日期正确</b></p>
+    </header>
+    <div class="infor" id="in">
+        <span class="theme_one title">信息</span>
+        <p class="theme_three">·    输入全部信息以计算</p>
+        <p class="theme_three">·    确保输入正确</p>
+        <form action="#">
+            <div>
+                <label class="theme_two" for="gender">您的生物学性别</label>
+                <select class="theme_one_v" name="gender" id="user_gender">
+                    <option value ="boy">男</option>
+                    <option value ="girl">女</option>
+                </select>
+            </div>
+            <div>
+                <label class="theme_two" for="born">您的出生日期(公历)</label>
+                <input class="theme_one_v" type="date" id="user_date" value="" name="born">
+            </div>
+            <div>
+                <label class="theme_two" for="tall">您的身高(cm)</label>
+                <input class="theme_one_v" type="text" id="user_tall" value="" name="tall" placeholder="您的身高">
+            </div>
+            <div>
+                <label class="theme_two" for="weight">您的体重(kg)</label>
+                <input class="theme_one_v" type="text" id="user_weight" value="" name="weight" placeholder="您的体重">
+            </div>
+            <input class="theme_one_v" type="button" id="button" onclick="buttonget()" name="submit" value="提交">
+        </form>
+    </div>
+    <div class="infor" id="out">
+        <span class="theme_one title">结果</span>
+        <div id="ages">
+            <h2 class="theme_two">年龄</h2>
+            <p class="theme_two">您现在<span id="user_age_zhou">error</span>周岁，<span id="user_age_xu">error</span>虚岁</p>
+            <p class="theme_two"><a class="theme_two" href="">来源参考</a></p>
+        </div>
+    </div>
+    <div class="infor">
+        <span class="theme_one title">反馈</span>
+        <div>
+            <p class="theme_two">使用问题与建议请联系我主站提供的邮箱</p>
+        </div>
+    </div>
+    <footer><a class="link theme_two" href="https://github.com/lixingyu41/lxy_theme_js" target="_blank ">自适应颜色切换</a> | <a class="link theme_two" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a> | <a class="link theme_two" href="https://beian.miit.gov.cn/" target="_blank ">冀ICP备2022018499号-1</a></footer>
+</body>
+</html>
