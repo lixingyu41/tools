@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>LXY-Tools-dBm与w转换</title>
+  <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习过程中做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>LXY-Tools-dBm与w转换</title>
+    <link rel="stylesheet" href="dbmw.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body class="theme_back">
+    <header>
+        <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+        <h2 class="theme_two">dBm与w转换</h2>
+    </header>
+  <div class="theme_two section">
+    <label for="dbmInput">dBm 转换为 W：</label>
+    <input type="number" id="dbmInput" placeholder="输入 dBm 值">
+    <div class="output out" id="wOutput">输出: -</div>
+  </div>
+
+  <div class="theme_two section">
+    <label for="wInput">W 转换为 dBm：</label>
+    <input type="number" id="wInput" placeholder="输入 W 值" step="any">
+    <div class="output out" id="dbmOutput">输出: -</div>
+  </div>
+
+  <script>
+    const dbmInput = document.getElementById("dbmInput");
+    const wInput = document.getElementById("wInput");
+    const wOutput = document.getElementById("wOutput");
+    const dbmOutput = document.getElementById("dbmOutput");
+
+    dbmInput.addEventListener("input", () => {
+      const dbm = parseFloat(dbmInput.value);
+      if (!isNaN(dbm)) {
+        const watt = Math.pow(10, dbm / 10) / 1000;
+        wOutput.textContent = `输出: ${watt.toFixed(6)} W`;
+      } else {
+        wOutput.textContent = "输出: -";
+      }
+    });
+
+    wInput.addEventListener("input", () => {
+      const watt = parseFloat(wInput.value);
+      if (!isNaN(watt) && watt > 0) {
+        const dbm = 10 * Math.log10(watt * 1000);
+        dbmOutput.textContent = `输出: ${dbm.toFixed(2)} dBm`;
+      } else {
+        dbmOutput.textContent = "输出: -";
+      }
+    });
+  </script>
+  <footer><a class="link theme_two" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a></footer>
+</body>
+</html>

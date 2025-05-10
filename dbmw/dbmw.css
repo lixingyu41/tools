@@ -1,0 +1,17 @@
+body { font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+h1 { font-size: 1.5em; margin-bottom: 20px; }
+.section { margin-bottom: 30px; }
+label { display: block; margin-bottom: 5px; }
+input { width: 100%; padding: 8px; font-size: 1em; margin-bottom: 10px; }
+.output { font-weight: bold; font-size: 1.1em; margin-top: 5px; }
+.out{
+    border: #f1f1f1 1px solid;
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-size: 2em;
+}
+.row{
+    border: #aaa 3px solid;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
