@@ -1,0 +1,21 @@
+body { font-family: sans-serif; margin: 20px; }
+.tabs { display: flex; margin-bottom: 10px; }
+.tab { padding: 10px 20px; border: 1px solid #ccc; cursor: pointer; }
+.tab.active { background-color: #2f2f2f; color: white; }
+.content { display: none; }
+.content.active { display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 5px; margin: 5px 0; }
+.row button { padding: 10px; border: 1px solid #aaa; cursor: pointer; min-width: 40px; }
+.row button.active { background-color: #2f2f2f; color: white; }
+#result { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
+.out{
+    border: #f1f1f1 10px solid;
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-size: 2em;
+}
+.row{
+    border: #aaa 3px solid;
+    border-radius: 5px;
+    padding: 7px 10px;
+}

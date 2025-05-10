@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习过程中做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>LXY-Tools-贴片电阻丝印计算器</title>
+    <link rel="stylesheet" href="resc.css">
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body class="theme_back">
+  <header>
+        <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+        <h2 class="theme_two">贴片电阻丝印计算器</h2>
+    </header>
+  <div class="tabs">
+    <div class="tab active" data-tab="3eia">3位EIA</div>
+    <div class="tab" data-tab="4eia">4位EIA</div>
+    <div class="tab" data-tab="eia96">EIA-96</div>
+  </div>
+
+  <div id="3eia" class="content active">
+    <div class="row" id="3eia-digit-1"></div>
+    <div class="row" id="3eia-digit-2"></div>
+    <div class="row" id="3eia-multiplier"></div>
+    <div class="theme_one out" id="3eia-result">输出: -</div>
+  </div>
+
+  <div id="4eia" class="content">
+    <div class="row" id="4eia-digit-1"></div>
+    <div class="row" id="4eia-digit-2"></div>
+    <div class="row" id="4eia-digit-3"></div>
+    <div class="row" id="4eia-multiplier"></div>
+    <div class="theme_one out" id="4eia-result">输出: -</div>
+  </div>
+
+  <div id="eia96" class="content">
+    <div class="row" id="eia96-digit-1"></div>
+    <div class="row" id="eia96-digit-2"></div>
+    <div class="row" id="eia96-letter"></div>
+    <div class="theme_one out" id="eia96-result">输出: -</div>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.content');
+
+    tabs.forEach(tab => {
+      tab.onclick = () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.tab).classList.add('active');
+      };
+    });
+
+    function createButtonRow(id, options, onSelect) {
+      const container = document.getElementById(id);
+      options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.textContent = opt;
+        btn.onclick = () => {
+          [...container.children].forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          onSelect(opt);
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function formatValue(val) {
+      if (val >= 1_000_000) return (val / 1_000_000).toFixed(2).replace(/\.00$/, '') + 'MΩ';
+      if (val >= 1_000) return (val / 1_000).toFixed(2).replace(/\.00$/, '') + 'kΩ';
+      return val + 'Ω';
+    }
+
+    let eia3 = [null, null, null];
+    function updateEIA3() {
+      if (eia3.every(x => x !== null)) {
+        const val = (parseInt(eia3[0]) * 10 + parseInt(eia3[1])) * Math.pow(10, parseInt(eia3[2]));
+        document.getElementById("3eia-result").textContent = `输出: ${formatValue(val)}`;
+      } else {
+        document.getElementById("3eia-result").textContent = "输出: -";
+      }
+    }
+
+    createButtonRow("3eia-digit-1", [...Array(10).keys()].map(String), v => { eia3[0] = v; updateEIA3(); });
+    createButtonRow("3eia-digit-2", [...Array(10).keys()].map(String), v => { eia3[1] = v; updateEIA3(); });
+    createButtonRow("3eia-multiplier", [...Array(10).keys()].map(String), v => { eia3[2] = v; updateEIA3(); });
+
+    let eia4 = [null, null, null, null];
+    function updateEIA4() {
+      if (eia4.every(x => x !== null)) {
+        const val = (parseInt(eia4[0]) * 100 + parseInt(eia4[1]) * 10 + parseInt(eia4[2])) * Math.pow(10, parseInt(eia4[3]));
+        document.getElementById("4eia-result").textContent = `输出: ${formatValue(val)}`;
+      } else {
+        document.getElementById("4eia-result").textContent = "输出: -";
+      }
+    }
+
+    createButtonRow("4eia-digit-1", [...Array(10).keys()].map(String), v => { eia4[0] = v; updateEIA4(); });
+    createButtonRow("4eia-digit-2", [...Array(10).keys()].map(String), v => { eia4[1] = v; updateEIA4(); });
+    createButtonRow("4eia-digit-3", [...Array(10).keys()].map(String), v => { eia4[2] = v; updateEIA4(); });
+    createButtonRow("4eia-multiplier", [...Array(10).keys()].map(String), v => { eia4[3] = v; updateEIA4(); });
+
+    const eia96Map = {
+      "01": 100, "02": 102, "03": 105, "04": 107, "05": 110, "06": 113, "07": 115, "08": 118, "09": 121,
+      "10": 124, "11": 127, "12": 130, "13": 133, "14": 137, "15": 140, "16": 143, "17": 147, "18": 150, "19": 154,
+      "20": 158, "21": 162, "22": 165, "23": 169, "24": 174, "25": 178, "26": 182, "27": 187, "28": 191, "29": 196,
+      "30": 200, "31": 205, "32": 210, "33": 215, "34": 221, "35": 226, "36": 232, "37": 237, "38": 243, "39": 249,
+      "40": 255, "41": 261, "42": 267, "43": 274, "44": 280, "45": 287, "46": 294, "47": 301, "48": 309, "49": 316,
+      "50": 324, "51": 332, "52": 340, "53": 348, "54": 357, "55": 365, "56": 374, "57": 383, "58": 392, "59": 402,
+      "60": 412, "61": 422, "62": 432, "63": 442, "64": 453, "65": 464, "66": 475, "67": 487, "68": 499, "69": 511,
+      "70": 523, "71": 536, "72": 549, "73": 562, "74": 576, "75": 590, "76": 604, "77": 619, "78": 634, "79": 649,
+      "80": 665, "81": 681, "82": 698, "83": 715, "84": 732, "85": 750, "86": 768, "87": 787, "88": 806, "89": 825,
+      "90": 845, "91": 866, "92": 887, "93": 909, "94": 931, "95": 953, "96": 976
+    };
+
+    const eia96Letters = {
+      "Z": 0.001, "Y": 0.01, "X": 0.1, "A": 1, "B": 10, "C": 100, "D": 1000, "E": 10000, "F": 100000, "G": 1000000, "H": 10000000
+    };
+
+    let eia96Sel = [null, null, null];
+    function updateEIA96() {
+      if (eia96Sel.every(x => x !== null)) {
+        const code = eia96Sel[0] + eia96Sel[1];
+        const base = eia96Map[code];
+        const mult = eia96Letters[eia96Sel[2]];
+        if (base && mult) {
+          const val = base * mult;
+          document.getElementById("eia96-result").textContent = `输出: ${formatValue(val)}`;
+        } else {
+          document.getElementById("eia96-result").textContent = "输出: -";
+        }
+      } else {
+        document.getElementById("eia96-result").textContent = "输出: -";
+      }
+    }
+
+    createButtonRow("eia96-digit-1", [...Array(10).keys()].map(String), v => { eia96Sel[0] = v; updateEIA96(); });
+    createButtonRow("eia96-digit-2", [...Array(10).keys()].map(String), v => { eia96Sel[1] = v; updateEIA96(); });
+    createButtonRow("eia96-letter", Object.keys(eia96Letters), v => { eia96Sel[2] = v; updateEIA96(); });
+  </script>
+  <footer><a class="link theme_two" href="https://lixingyu.top" target="_blank ">&copy;李星宇</a></footer>
+</body>
+</html>
