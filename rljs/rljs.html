@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习过程中做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>LXY-Tools-热量换算</title>
+    <link rel="stylesheet" href="../bh/bh.css">
+    <script type="text/javascript" src="rljs.js"></script>
+    <link rel="stylesheet" href="../main.css">
+</head>
+<body class="theme_back">
+    <header>
+        <h1><a class="theme_three link" href="../index.html">工具</a></h1>
+        <h2 class="theme_two">热量换算</h2>
+        <p class="theme_one same"><b>单位之间快速换算</b></p>
+        <p class="theme_one same"><b>信息仅供参考, 您填写的数据只在本地储存</b></p>
+        <p class="theme_one same"><b>确保您输入正确</b></p>
+    </header>
+
+    <div class="infor" id="in">
+        <span class="theme_one title">信息</span>
+        <p class="theme_three">·    输入数值和单位以计算</p>
+        <p class="theme_three">·    确保输入正确</p>
+        <form onsubmit="return false;">
+            <div>
+                <label class="theme_two" for="value">数值</label>
+                <input class="theme_one_v" type="text" id="input_value" placeholder="请输入数值">
+            </div>
+            <div>
+                <label class="theme_two" for="unit">单位</label>
+                <select class="theme_one_v" id="input_unit">
+                    <option value="kcal">千卡(kcal，大卡)</option>
+                    <option value="cal">卡(cal)</option>
+                    <option value="kj">千焦(kJ)</option>
+                </select>
+            </div>
+            <input class="theme_one_v" type="button" id="button" onclick="convertCalorie()" value="提交">
+        </form>
+    </div>
+
+    <div class="infor" id="out">
+        <span class="theme_one title">结果</span>
+        <div>
+            <h2 class="theme_two">千卡(kcal, 大卡)</h2>
+            <p class="theme_two"><span id="out_kcal">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">卡(cal)</h2>
+            <p class="theme_two"><span id="out_cal">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">千焦(kJ)</h2>
+            <p class="theme_two"><span id="out_kj">-</span></p>
+        </div>
+    </div>
+
+    <div class="infor">
+        <span class="theme_one title">反馈</span>
+        <div>
+            <p class="theme_two">使用问题与建议请联系我主站提供的邮箱</p>
+        </div>
+    </div>
+
+    <footer><a class="link theme_two" href="https://lixingyu.top" target="_blank">&copy;李星宇</a></footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>PCB电流计算器</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    h2 { margin-top: 30px; }
+    label { display: block; margin-top: 10px; }
+    input, select { padding: 5px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 20px; }
+    .result { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>PCB 电流计算工具</h1>
+
+  <h2>1. 计算最大承载电流</h2>
+  <label>走线宽度 <input type="number" id="width1"> <select id="width1-unit"></select></label>
+  <label>铜厚 <input type="number" id="thickness1"> <select id="thickness1-unit"></select></label>
+  <label>温升(°C) <input type="number" id="temp1" value="10"></label>
+  <button onclick="calcCurrent()">计算电流</button>
+  <div class="result" id="current-result"></div>
+
+  <h2>2. 计算所需最小线宽</h2>
+  <label>目标电流(A) <input type="number" id="current2"></label>
+  <label>铜厚 <input type="number" id="thickness2"> <select id="thickness2-unit"></select></label>
+  <label>温升(°C) <input type="number" id="temp2" value="10"></label>
+  <button onclick="calcWidth()">计算线宽</button>
+  <div class="result" id="width-result"></div>
+
+  <h2>3. 过孔电流计算</h2>
+  <label>过孔孔径 <input type="number" id="via-d"> <select id="via-d-unit"></select></label>
+  <label>内壁铜厚 <input type="number" id="via-th"> <select id="via-th-unit"></select></label>
+  <label>温升(°C) <input type="number" id="temp3" value="10"></label>
+  <button onclick="calcVia()">计算过孔电流</button>
+  <div class="result" id="via-result"></div>
+
+  <script>
+    const units = {
+      'mm': 1,
+      'cm': 10,
+      'μm': 0.001,
+      'inch': 25.4,
+      'mil': 0.0254,
+      'oz': 0.0348 // oz/ft^2 to mm for copper thickness
+    };
+
+    function fillUnits(selectId, defaultUnit) {
+      const select = document.getElementById(selectId);
+      Object.keys(units).forEach(u => {
+        const opt = document.createElement('option');
+        opt.value = u; opt.textContent = u;
+        if (u === defaultUnit) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
+    [
+      ['width1-unit', 'mm'], ['thickness1-unit', 'oz'],
+      ['thickness2-unit', 'oz'], ['via-d-unit', 'mm'], ['via-th-unit', 'oz']
+    ].forEach(([id, def]) => fillUnits(id, def));
+
+    function toMM(val, unit) {
+      return val * (units[unit] || 1);
+    }
+
+    function fixArea(w, t) {
+      return Math.max(w * t, 0.001); // 避免面积为0
+    }
+
+    function mm2mil(mm) {
+      return mm / 0.0254;
+    }
+
+    function calcCurrent() {
+      const width = toMM(parseFloat(document.getElementById("width1").value), document.getElementById("width1-unit").value);
+      const thick = toMM(parseFloat(document.getElementById("thickness1").value), document.getElementById("thickness1-unit").value);
+      const deltaT = parseFloat(document.getElementById("temp1").value);
+      const area_mils = mm2mil(width) * mm2mil(thick);
+
+      const k_outer = 0.048;
+      const k_inner = 0.024;
+
+      const outer = k_outer * Math.pow(deltaT, 0.44) * Math.pow(area_mils, 0.725);
+      const inner = k_inner * Math.pow(deltaT, 0.44) * Math.pow(area_mils, 0.725);
+      document.getElementById("current-result").textContent = `外层最大电流: ${outer.toFixed(2)} A，内层最大电流: ${inner.toFixed(2)} A`;
+    }
+
+    function calcWidth() {
+      const current = parseFloat(document.getElementById("current2").value);
+      const thick = toMM(parseFloat(document.getElementById("thickness2").value), document.getElementById("thickness2-unit").value);
+      const deltaT = parseFloat(document.getElementById("temp2").value);
+
+      const k_outer = 0.048;
+      const k_inner = 0.024;
+
+      const areaOuter = Math.pow(current / (k_outer * Math.pow(deltaT, 0.44)), 1 / 0.725);
+      const areaInner = Math.pow(current / (k_inner * Math.pow(deltaT, 0.44)), 1 / 0.725);
+
+      const widthOuter = areaOuter / mm2mil(thick);
+      const widthInner = areaInner / mm2mil(thick);
+
+      const widthOuterMM = widthOuter * 0.0254;
+      const widthInnerMM = widthInner * 0.0254;
+
+      document.getElementById("width-result").textContent = `外层所需线宽: ${widthOuterMM.toFixed(2)} mm，内层所需线宽: ${widthInnerMM.toFixed(2)} mm`;
+    }
+
+    function calcVia() {
+      const d = toMM(parseFloat(document.getElementById("via-d").value), document.getElementById("via-d-unit").value);
+      const t = toMM(parseFloat(document.getElementById("via-th").value), document.getElementById("via-th-unit").value);
+      const deltaT = parseFloat(document.getElementById("temp3").value);
+      const area_mils = mm2mil(d) * mm2mil(t) * Math.PI;
+      const current = 0.024 * Math.pow(deltaT, 0.44) * Math.pow(area_mils, 0.725);
+      document.getElementById("via-result").textContent = `过孔最大电流: ${current.toFixed(2)} A`;
+    }
+  </script>
+</body>
+</html>
