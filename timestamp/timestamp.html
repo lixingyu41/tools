@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <link rel="icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://file.lixingyu.top/lxy/avatar.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="description" content="@LXY学习和折腾时做的一个工具页">
+    <meta name="Keywords" content="LIXINGYU工具页,工具页,lixingyu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#317EFB"/>
+    <title>LXY-Tools-时间戳转换</title>
+    <link rel="stylesheet" href="../bh/bh.css">
+    <link rel="stylesheet" href="../main.css">
+    <script type="text/javascript" src="timestamp.js" defer></script>
+</head>
+<body class="theme_back">
+    <header>
+        <h1><a class="theme_three link" href="../index.html">返回</a></h1>
+        <h2 class="theme_two">时间戳转换</h2>
+        <p class="theme_one same"><b>秒级 / 毫秒级时间戳与日期互转</b></p>
+        <p class="theme_one same"><b>仅作学习交流使用，结果请自行校验</b></p>
+        <p class="theme_one same"><b>默认按照本机时区进行展示</b></p>
+    </header>
+
+    <div class="infor">
+        <span class="theme_one title">说明</span>
+        <div>
+            <p class="theme_three">· 输入时间戳时请选择正确的单位（秒 或 毫秒）</p>
+            <p class="theme_three">· 互转展示同时给出本地格式化时间与 ISO 8601</p>
+            <p class="theme_three">· “使用当前时间”会把本机当前时间填入下面的输入框</p>
+        </div>
+    </div>
+
+    <div class="infor" id="timestamp_to_time">
+        <span class="theme_one title">时间戳 → 时间</span>
+        <form onsubmit="return convertFromTimestamp();">
+            <div>
+                <label class="theme_two" for="timestamp_value">时间戳</label>
+                <input class="theme_one_v" type="text" id="timestamp_value" placeholder="例如：1714488874 或 1714488874000">
+            </div>
+            <div>
+                <label class="theme_two" for="timestamp_unit">单位</label>
+                <select class="theme_one_v" id="timestamp_unit">
+                    <option value="seconds">秒 (s)</option>
+                    <option value="milliseconds">毫秒 (ms)</option>
+                </select>
+            </div>
+            <input class="theme_one_v" type="submit" id="timestamp_button" value="转换">
+        </form>
+        <div>
+            <h2 class="theme_two">本地时间</h2>
+            <p class="theme_two"><span id="timestamp_local">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">ISO 8601</h2>
+            <p class="theme_two"><span id="timestamp_iso">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">与当前时间差</h2>
+            <p class="theme_two"><span id="timestamp_relative">-</span></p>
+        </div>
+    </div>
+
+    <div class="infor" id="time_to_timestamp">
+        <span class="theme_one title">时间 → 时间戳</span>
+        <form onsubmit="return convertToTimestamp();">
+            <div>
+                <label class="theme_two" for="datetime_value">日期时间</label>
+                <input class="theme_one_v" type="datetime-local" id="datetime_value">
+                <input class="theme_one_v" type="button" value="使用当前时间" onclick="useCurrentTime()">
+            </div>
+            <input class="theme_one_v" type="submit" id="datetime_button" value="转换">
+        </form>
+        <div>
+            <h2 class="theme_two">秒级时间戳 (s)</h2>
+            <p class="theme_two"><span id="timestamp_seconds">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">毫秒时间戳 (ms)</h2>
+            <p class="theme_two"><span id="timestamp_milliseconds">-</span></p>
+        </div>
+        <div>
+            <h2 class="theme_two">格式化结果</h2>
+            <p class="theme_two"><span id="datetime_preview">-</span></p>
+        </div>
+    </div>
+
+    <div class="infor">
+        <span class="theme_one title">备注</span>
+        <div>
+            <p class="theme_two">结果依赖浏览器对日期的解析能力，如遇异常请尝试更换浏览器。</p>
+        </div>
+    </div>
+
+    <footer><a class="link theme_two" href="https://lixingyu.top" target="_blank">&copy;李星宇</a></footer>
+</body>
+</html>
